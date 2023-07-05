@@ -14,16 +14,13 @@
       .logo {
         display: block;
         margin: 0 auto;
-        width: 80px;
+        width: 100px;
         fill: #00868C;
       }
 
       nav {
         background: #00B3BB;
         padding: 10px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
       }
 
       nav ul {
@@ -31,8 +28,7 @@
         padding: 0;
         margin: 0;
         display: flex;
-        justify-content: flex-end;
-        align-items: center;
+        justify-content: center;
       }
 
       nav ul li {
@@ -42,60 +38,6 @@
       nav ul li a {
         color: #FFF;
         text-decoration: none;
-      }
-
-      .burger-menu {
-        display: none;
-        cursor: pointer;
-      }
-
-      .burger-menu div {
-        width: 25px;
-        height: 3px;
-        background-color: #FFF;
-        margin: 5px;
-        transition: all 0.3s ease;
-      }
-
-      @media (max-width: 600px) {
-        .logo {
-          width: 60px;
-        }
-
-        nav ul {
-          flex-direction: column;
-          position: absolute;
-          top: 50px;
-          left: 0;
-          width: 100%;
-          background-color: #00B3BB;
-          padding: 10px 0;
-          display: none;
-        }
-
-        nav ul li {
-          margin-right: 0;
-          margin-bottom: 10px;
-        }
-
-        nav ul li:last-child {
-          margin-bottom: 0;
-        }
-
-        .burger-menu {
-          display: block;
-        }
-
-        .active {
-          transform: translateX(0%);
-        }
-
-        nav.mobile-active ul {
-          display: flex;
-          flex-direction: column;
-          justify-content: flex-start;
-          align-items: flex-start;
-        }
       }
 
       content {
@@ -129,6 +71,36 @@
         margin-top: 10px;
         padding-left: 20px;
       }
+
+      /* Mobile styles */
+      @media (max-width: 600px) {
+        nav ul {
+          flex-direction: column;
+        }
+
+        nav ul li {
+          margin-bottom: 10px;
+        }
+
+        .burger-menu {
+          display: block;
+        }
+
+        .burger-menu div {
+          width: 25px;
+          height: 3px;
+          background-color: #FFF;
+          margin: 5px;
+        }
+
+        nav ul.mobile-active {
+          display: block;
+        }
+
+        section {
+          margin-top: 10px;
+        }
+      }
       ]]>
     </style>
   </head>
@@ -144,13 +116,13 @@
         <path d="M14.145 14.65l-2.125-1.23v4.242zm0 0"/>
         <path d="M12 14.65l-2.11-1.23h4.223zm0 0"/>
       </svg>
+    </header>
+    <nav>
       <div class="burger-menu">
         <div></div>
         <div></div>
         <div></div>
       </div>
-    </header>
-    <nav>
       <ul>
         <li><a href="#home">🏠 Home</a></li>
         <li><a href="#rules">📜 Rules</a></li>
@@ -162,7 +134,7 @@
     <content>
       <section id="home">
         <h1>Online Game Coaching Ethos</h1>
-        <p>The games we offer coaching for are Hearthstone: Heroes of Warcraft and Legends of Runeterra. We provide coaching for both Ranked Standard and Normal Standard modes.</p>
+        <p>At our online game coaching service, we provide expert coaching for two popular games: Hearthstone: Heroes of Warcraft and Legends of Runeterra. Our experienced coaches are skilled in both Ranked Standard and Normal Standard modes, ensuring that players receive the guidance they need to improve their gameplay.</p>
       </section>
       <section id="rules">
         <h2>📜 Rules</h2>
@@ -188,38 +160,21 @@
       </section>
       <section id="social">
         <h2>🌐 Social</h2>
-        <p>Required Decks are published on our Social Outlets. Please visit our linktr.ee page for more information.</p>
+        <p>Follow us on social media for the latest updates and coaching tips:</p>
+        <ul>
+          <li>Twitter: <a href="https://twitter.com/coaching_service">@coaching_service</a></li>
+          <li>Facebook: <a href="https://www.facebook.com/coaching_service">coaching_service</a></li>
+          <li>Instagram: <a href="https://www.instagram.com/coaching_service">@coaching_service</a></li>
+        </ul>
       </section>
     </content>
     <script>
       <![CDATA[
-      const navLinks = document.querySelectorAll("nav ul li a");
-      const sections = document.querySelectorAll("section");
-      const burgerMenu = document.querySelector(".burger-menu");
+      const burgerMenu = document.querySelector('.burger-menu');
+      const navList = document.querySelector('nav ul');
 
-      navLinks.forEach((link) => {
-        link.addEventListener("click", (e) => {
-          e.preventDefault();
-          const target = link.getAttribute("href").substring(1);
-
-          sections.forEach((section) => {
-            section.style.display = section.id === target ? "block" : "none";
-          });
-
-          // Close the mobile menu after clicking a link
-          if (window.innerWidth < 600) {
-            const nav = document.querySelector("nav ul");
-            nav.classList.remove("mobile-active");
-            burgerMenu.classList.remove("active");
-          }
-        });
-      });
-
-      // Toggle mobile menu
-      burgerMenu.addEventListener("click", () => {
-        const nav = document.querySelector("nav ul");
-        nav.classList.toggle("mobile-active");
-        burgerMenu.classList.toggle("active");
+      burgerMenu.addEventListener('click', function () {
+        navList.classList.toggle('mobile-active');
       });
       ]]>
     </script>
