@@ -4,34 +4,6 @@
     <title>Online Game Coaching</title>
     <style>
       <![CDATA[
-      @media screen and (max-width: 600px) {
-        nav ul {
-          display: none;
-        }
-
-        .mobile-nav ul {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-        }
-
-        .mobile-nav li {
-          margin-top: 10px;
-        }
-
-        .burger-menu {
-          display: block;
-        }
-
-        .nav-bar {
-          display: none;
-        }
-
-        .mobile-active {
-          display: block;
-        }
-      }
-
       body {
         font-family: "FreeMono", "Andale Mono", monospace;
         margin: 0 auto;
@@ -46,7 +18,12 @@
         fill: #00868C;
       }
 
-      .nav-bar ul {
+      nav {
+        background: #00B3BB;
+        padding: 10px;
+      }
+
+      .nav-bar {
         list-style: none;
         padding: 0;
         margin: 0;
@@ -54,71 +31,24 @@
         justify-content: center;
       }
 
-      .nav-bar ul li {
+      .nav-bar li {
         margin-right: 10px;
       }
 
-      .nav-bar ul li a {
+      .nav-bar li a {
         color: #FFF;
         text-decoration: none;
       }
 
-      .mobile-nav {
-        display: none;
-      }
-
-      .burger-menu {
-        display: none;
-        cursor: pointer;
-        position: relative;
-        width: 30px;
-        height: 20px;
-      }
-
-      .burger-menu div {
-        position: absolute;
-        background-color: #00B3BB;
-        height: 3px;
-        width: 100%;
-        border-radius: 3px;
-        transition: all 0.3s ease;
-      }
-
-      .burger-menu div:nth-child(1) {
-        top: 0px;
-      }
-
-      .burger-menu div:nth-child(2) {
-        top: 8px;
-      }
-
-      .burger-menu div:nth-child(3) {
-        bottom: 0px;
-      }
-
-      .mobile-active .burger-menu div:nth-child(1) {
-        top: 8px;
-        transform: rotate(45deg);
-      }
-
-      .mobile-active .burger-menu div:nth-child(2) {
-        opacity: 0;
-      }
-
-      .mobile-active .burger-menu div:nth-child(3) {
-        bottom: 8px;
-        transform: rotate(-45deg);
-      }
-
-      content {
+      .content {
         margin-top: 20px;
       }
 
-      section {
+      .section {
         display: none;
       }
 
-      section#home {
+      .section#home {
         display: block;
       }
 
@@ -141,6 +71,43 @@
         margin-top: 10px;
         padding-left: 20px;
       }
+
+      /* Mobile Breakpoint */
+      @media (max-width: 600px) {
+        .nav-bar {
+          display: none;
+        }
+
+        .burger-menu {
+          display: block;
+          text-align: right;
+          cursor: pointer;
+          padding: 10px;
+        }
+
+        .burger-menu div {
+          width: 25px;
+          height: 3px;
+          background-color: #FFF;
+          margin-bottom: 5px;
+        }
+
+        .active .nav-bar {
+          display: block;
+        }
+
+        .active .burger-menu div:nth-child(1) {
+          transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .active .burger-menu div:nth-child(2) {
+          opacity: 0;
+        }
+
+        .active .burger-menu div:nth-child(3) {
+          transform: rotate(45deg) translate(-5px, -6px);
+        }
+      }
       ]]>
     </style>
   </head>
@@ -161,57 +128,71 @@
         <div></div>
         <div></div>
       </div>
-      <nav class="nav-bar">
-        <ul>
-          <li><a href="#home">🏠 Home</a></li>
-          <li><a href="#rules">📜 Rules</a></li>
-          <li><a href="#prices">💰 Prices</a></li>
-          <li><a href="#times">⌚ Times</a></li>
-          <li><a href="#social">🌐 Social</a></li>
-        </ul>
-      </nav>
-      <nav class="mobile-nav">
-        <ul>
-          <li><a href="#home">🏠 Home</a></li>
-          <li><a href="#rules">📜 Rules</a></li>
-          <li><a href="#prices">💰 Prices</a></li>
-          <li><a href="#times">⌚ Times</a></li>
-          <li><a href="#social">🌐 Social</a></li>
-        </ul>
-      </nav>
     </header>
-    <content>
-      <section id="home">
+    <nav>
+      <ul class="nav-bar">
+        <li><a href="#home">🏠 Home</a></li>
+        <li><a href="#rules">📜 Rules</a></li>
+        <li><a href="#prices">💰 Prices</a></li>
+        <li><a href="#times">⌚ Times</a></li>
+        <li><a href="#social">🌐 Social</a></li>
+      </ul>
+    </nav>
+    <content class="content">
+      <section class="section" id="home">
         <h1>Online Game Coaching Ethos</h1>
-        <p>At our online game coaching service, we provide expert coaching for two popular games: Hearthstone: Heroes of Warcraft and Legends of Runeterra. Our experienced coaches are skilled in both Ranked Standard and Normal Standard modes, ensuring that players receive the guidance they need to improve their gameplay.</p>
+        <p>The games we offer coaching for are Hearthstone: Heroes of Warcraft and Legends of Runeterra. We provide coaching for both Ranked Standard and Normal Standard modes.</p>
       </section>
-      <section id="rules">
+      <section class="section" id="rules">
         <h2>📜 Rules</h2>
-        <p>Ranked Mode: Lost Matches are charged 1.5 Gems/Coins less. Won Matches are charged normally. Extra Bonus from Won Matches: 2 Coins. Extra Bonus from Newly Acquired Ranked Mode Matches: 0.5 Gems.</p>
-        <p>Normal Mode: Lost Matches are charged 1 Gem/Coin less. Won Matches are charged 0.5 Gem/Coin less. Extra Bonus from Won Normal Mode Matches: 1 Coin. Extra Bonus from Newly Acquired Normal Mode Matches: 0.5 Coins.</p>
+        <p>Ranked Mode: Lost Matches are charged 1.5 Gems/Coins less. Won Matches are charged normally. Extra Bonus from Won Matches is 2 Coins. Extra Bonus from newly acquired Ranked Mode matches is 0.5 Gems.</p>
+        <p>Normal Mode: Lost Matches are charged 1 Gem/Coin less. Won Matches are charged 0.5 Gem/Coin less. Extra Bonus from Won Matches is 1 Coin. Extra Bonus from newly acquired Normal Mode matches is 0.5 Coins.</p>
       </section>
-      <section id="prices">
+      <section class="section" id="prices">
         <h2>💰 Prices</h2>
-        <p>Gems: $2 or equivalent (charged in cash).</p>
-        <p>Coins: $2 or equivalent (charged on-chain).</p>
-        <p>Floor Price: 5 Gems or 5 Coins per match.</p>
+        <p>The prices for coaching sessions are as follows:</p>
+        <ul>
+          <li>Gem Price: $2 or equivalent</li>
+          <li>Coin Price: $2 or equivalent</li>
+          <li>Floor Price: 5 Gems or 5 Coins</li>
+          <li>Extra Bonus from Won Ranked Mode Matches: 2 Coins</li>
+          <li>Extra Bonus from Won Normal Mode Matches: 1 Coin</li>
+          <li>Extra Bonus from Newly Acquired Ranked Mode Matches: 0.5 Gems</li>
+          <li>Extra Bonus from Newly Acquired Normal Mode Matches: 0.5 Coins</li>
+        </ul>
       </section>
-      <section id="times">
+      <section class="section" id="times">
         <h2>⌚ Times</h2>
-        <p>New Matches Availability: Matches can be performed during GMT 11 AM / 7 PM.</p>
+        <p>Newly acquired matches can be performed during GMT 11AM / 7PM.</p>
       </section>
-      <section id="social">
+      <section class="section" id="social">
         <h2>🌐 Social</h2>
-        <p>Required Decks: Decks for coaching sessions are published on our Social Outlets in <a href="https://linktr.ee">Linktr.ee</a>.</p>
+        <p>Required Decks are published on our Social Outlets. Please visit our linktr.ee page for more information.</p>
       </section>
     </content>
     <script>
-      const burgerMenu = document.querySelector('.burger-menu');
-      const mobileNav = document.querySelector('.mobile-nav');
+      <![CDATA[
+      const navLinks = document.querySelectorAll(".nav-bar li a");
+      const sections = document.querySelectorAll(".section");
 
-      burgerMenu.addEventListener('click', () => {
-        mobileNav.classList.toggle('mobile-active');
+      navLinks.forEach((link) => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          const target = link.getAttribute("href").substring(1);
+
+          sections.forEach((section) => {
+            section.style.display = section.id === target ? "block" : "none";
+          });
+        });
       });
+
+      const burgerMenu = document.querySelector(".burger-menu");
+      const navBar = document.querySelector(".nav-bar");
+
+      burgerMenu.addEventListener("click", () => {
+        navBar.classList.toggle("active");
+      });
+      ]]>
     </script>
   </body>
 </website>
