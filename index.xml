@@ -4,6 +4,47 @@
     <title>Online Game Coaching</title>
     <style>
       <![CDATA[
+      @media only screen and (max-width: 600px) {
+        .burger-menu {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          width: 30px;
+          height: 20px;
+          cursor: pointer;
+        }
+
+        .burger-menu div {
+          width: 100%;
+          height: 3px;
+          background-color: #00868C;
+        }
+
+        .mobile-nav ul {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          display: none;
+          flex-direction: column;
+          align-items: center;
+          background-color: #00B3BB;
+          padding: 10px;
+        }
+
+        .mobile-nav ul li {
+          margin-bottom: 10px;
+        }
+
+        .mobile-nav ul li a {
+          color: #FFF;
+          text-decoration: none;
+        }
+
+        .mobile-nav.mobile-active ul {
+          display: flex;
+        }
+      }
+
       body {
         font-family: "FreeMono", "Andale Mono", monospace;
         margin: 0 auto;
@@ -16,6 +57,13 @@
         margin: 0 auto;
         width: 100px;
         fill: #00868C;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
       }
 
       nav {
@@ -71,36 +119,6 @@
         margin-top: 10px;
         padding-left: 20px;
       }
-
-      /* Mobile styles */
-      @media (max-width: 600px) {
-        nav ul {
-          flex-direction: column;
-        }
-
-        nav ul li {
-          margin-bottom: 10px;
-        }
-
-        .burger-menu {
-          display: block;
-        }
-
-        .burger-menu div {
-          width: 25px;
-          height: 3px;
-          background-color: #FFF;
-          margin: 5px;
-        }
-
-        nav ul.mobile-active {
-          display: block;
-        }
-
-        section {
-          margin-top: 10px;
-        }
-      }
       ]]>
     </style>
   </head>
@@ -116,13 +134,22 @@
         <path d="M14.145 14.65l-2.125-1.23v4.242zm0 0"/>
         <path d="M12 14.65l-2.11-1.23h4.223zm0 0"/>
       </svg>
-    </header>
-    <nav>
       <div class="burger-menu">
         <div></div>
         <div></div>
         <div></div>
       </div>
+    </header>
+    <nav class="mobile-nav">
+      <ul>
+        <li><a href="#home">🏠 Home</a></li>
+        <li><a href="#rules">📜 Rules</a></li>
+        <li><a href="#prices">💰 Prices</a></li>
+        <li><a href="#times">⌚ Times</a></li>
+        <li><a href="#social">🌐 Social</a></li>
+      </ul>
+    </nav>
+    <nav>
       <ul>
         <li><a href="#home">🏠 Home</a></li>
         <li><a href="#rules">📜 Rules</a></li>
@@ -134,47 +161,38 @@
     <content>
       <section id="home">
         <h1>Online Game Coaching Ethos</h1>
-        <p>At our online game coaching service, we provide expert coaching for two popular games: Hearthstone: Heroes of Warcraft and Legends of Runeterra. Our experienced coaches are skilled in both Ranked Standard and Normal Standard modes, ensuring that players receive the guidance they need to improve their gameplay.</p>
+        <p>At our online game coaching service, we provide expert coaching for three popular games: Hearthstone: Heroes of Warcraft, Legends of Runeterra, and Apex Legends (both Ranked and Normal modes).</p>
+        <p>Our coaching sessions are personalized and tailored to each player's individual needs and goals. Whether you're looking to climb the ranks in Ranked Standard or enhance your skills in Normal Standard, our coaches will provide valuable insights, strategies, and feedback to help you level up your game.</p>
       </section>
       <section id="rules">
         <h2>📜 Rules</h2>
-        <p>Ranked Mode: Lost Matches are charged 1.5 Gems/Coins less. Won Matches are charged normally. Extra Bonus from Won Matches is 2 Coins. Extra Bonus from newly acquired Ranked Mode matches is 0.5 Gems.</p>
-        <p>Normal Mode: Lost Matches are charged 1 Gem/Coin less. Won Matches are charged 0.5 Gem/Coin less. Extra Bonus from Won Matches is 1 Coin. Extra Bonus from newly acquired Normal Mode matches is 0.5 Coins.</p>
+        <p>Ranked Mode: Lost Matches are charged 1.5 Gems/Coins less. Won Matches are charged normally. Extra Bonus from Won Matches is 2 Coins. Extra Bonus from Newly Acquired Ranked Mode Matches is 0.5 Gems.</p>
+        <p>Normal Mode: Lost Matches are charged 1 Gem/Coin less. Won Matches are charged 0.5 Gem/Coin less. Extra Bonus from Won Normal Mode Matches is 1 Coin. Extra Bonus from Newly Acquired Normal Mode Matches is 0.5 Coins.</p>
       </section>
       <section id="prices">
         <h2>💰 Prices</h2>
-        <p>The prices for coaching sessions are as follows:</p>
         <ul>
-          <li>Gem Price: $2 or equivalent</li>
-          <li>Coin Price: $2 or equivalent</li>
-          <li>Floor Price: 5 Gems or 5 Coins</li>
-          <li>Extra Bonus from Won Ranked Mode Matches: 2 Coins</li>
-          <li>Extra Bonus from Won Normal Mode Matches: 1 Coin</li>
-          <li>Extra Bonus from Newly Acquired Ranked Mode Matches: 0.5 Gems</li>
-          <li>Extra Bonus from Newly Acquired Normal Mode Matches: 0.5 Coins</li>
+          <li>Gems: $2 or equivalent (charged in cash).</li>
+          <li>Coins: $2 or equivalent (charged on-chain).</li>
+          <li>Floor Price: 5 Gems or 5 Coins per match.</li>
         </ul>
       </section>
       <section id="times">
         <h2>⌚ Times</h2>
-        <p>Newly acquired matches can be performed during GMT 11AM / 7PM.</p>
+        <p>New Matches Availability: Matches can be performed during GMT 11 AM / 7 PM.</p>
       </section>
       <section id="social">
         <h2>🌐 Social</h2>
-        <p>Follow us on social media for the latest updates and coaching tips:</p>
-        <ul>
-          <li>Twitter: <a href="https://twitter.com/coaching_service">@coaching_service</a></li>
-          <li>Facebook: <a href="https://www.facebook.com/coaching_service">coaching_service</a></li>
-          <li>Instagram: <a href="https://www.instagram.com/coaching_service">@coaching_service</a></li>
-        </ul>
+        <p>Required Decks: Decks for coaching sessions are published on our Social Outlets in <a href="https://linktr.ee">Linktr.ee</a>.</p>
       </section>
     </content>
     <script>
       <![CDATA[
       const burgerMenu = document.querySelector('.burger-menu');
-      const navList = document.querySelector('nav ul');
+      const mobileNav = document.querySelector('.mobile-nav');
 
-      burgerMenu.addEventListener('click', function () {
-        navList.classList.toggle('mobile-active');
+      burgerMenu.addEventListener('click', function() {
+        mobileNav.classList.toggle('mobile-active');
       });
       ]]>
     </script>
