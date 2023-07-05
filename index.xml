@@ -85,6 +85,8 @@
         .burger-menu {
           display: block;
           cursor: pointer;
+          fill: #00B3BB;
+          margin-left: 80%;
         }
 
         .nav-bar ul {
@@ -120,7 +122,7 @@
         <path d="M12 14.65l-2.11-1.23h4.223zm0 0"/>
       </svg>
       <div class="burger-menu">
-        <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
           <path d="M2.926 2.715V13.4l5.306 3.06V5.785l-5.306-3.07zm0 0M21.074 2.715V13.4l-5.306 3.06V5.785l5.306-3.07zm0 0M12 17.307l5.305-3.07H6.695zm0 0"/>
           <path d="M21.074 14.295L12 19.93l-9.074-5.635-.06-6.649L12 3.196l9.133 4.51zm0 0"/>
           <path d="M2.926 14.295L12 19.93l9.074-5.635v-6.65L12 3.196 2.867 7.706zm0 0"/>
